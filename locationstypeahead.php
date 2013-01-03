@@ -1,6 +1,7 @@
 <?php
 /**
  * RSEvPro_Locations_Typeahead
+ * Imports dependent classes and keeps them ready for use
  *
  * @version  1.0
  * @package Stilero
@@ -15,21 +16,3 @@
 defined('_JEXEC') or die('Restricted access'); 
 define('LOC_TYPEAHEAD_CLASSES', JPATH_PLUGINS.'/system/locationstypeahead/locationstypeahead/');
 JLoader::register('LocationsTypeAhead', LOC_TYPEAHEAD_CLASSES.'locationstypeahead.php');
-
-// import library dependencies
-//jimport('joomla.plugin.plugin');
-
-//class plgSystemLocationstypeahead extends JPlugin {
-//
-//   
-//    function plgSystemLocationstypeahead(&$subject, $config) {
-//        parent::__construct($subject, $config);
-//        LocationsTypeAhead::loadBootstrap();
-//        LocationsTypeAhead::insertTypeaheadScript();
-//        LocationsTypeAhead::loadBootstrapCSS();
-//    }
-//    
-//    public function onContentAfterDisplay($context, &$article, &$params, $limitstart=0) {
-//        print LocationsTypeAhead::getTypeaheadInput();
-//    }
-//}
