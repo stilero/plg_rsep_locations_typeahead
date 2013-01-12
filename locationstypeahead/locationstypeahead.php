@@ -11,7 +11,7 @@
  *          LocationsTypeAhead::loadBootstrapCSS();
  *          $locationslist = LocationsTypeAhead::getLocationsInput('rslocations[]');
  *
- * @version  1.0
+ * @version  1.1
  * @package Stilero
  * @subpackage RSEvPro_Locations_Typeahead
  * @author Daniel Eliasson (joomla@stilero.com)
@@ -149,6 +149,27 @@ class LocationsTypeAhead{
                         }
                     }
                     return true;
+                });
+                $('#enabletoday').change(function(){
+                    if($('#enabletoday').prop('checked')) {
+                        $('#rsstart').val('".date('Y-m-d')."');
+                        $('#enablestart').prop('checked', 'checked');    
+                        $('#rsend').val('".date('Y-m-d')."');
+                        $('#enableend').prop('checked', 'checked');
+                        $('#enableweek').prop('checked', '');
+                        rs_check_dates();
+                    }
+                });
+                
+                $('#enableweek').change(function(){
+                    if($('#enableweek').prop('checked')) {
+                        $('#rsstart').val('".date('Y-m-d')."');
+                        $('#enablestart').prop('checked', 'checked');    
+                        $('#rsend').val('".date('Y-m-d', strtotime("+7 days"))."');
+                        $('#enableend').prop('checked', 'checked');
+                        $('#enabletoday').prop('checked', '');
+                        rs_check_dates();
+                    }
                 });
             });";
         $document->addScriptDeclaration($script);
